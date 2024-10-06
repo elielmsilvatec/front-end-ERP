@@ -4,7 +4,7 @@ import api from "@/app/api/api";
 import Menu from "@/app/components/menu/page";
 import styles from "@/app/components/menu/menu.module.css";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import DeleteConfirmation from "@/app/components/DeleteConfirmation/page";
 
 export default function Produto({ params }: { params: { id: number } }) {
@@ -34,9 +34,8 @@ export default function Produto({ params }: { params: { id: number } }) {
       [name]: value,
     });
   };
-
-  // Função para buscar dados do produto
-  const fetchProduct = async () => {
+  // Função para buscar dados do produto (usando useCallback)
+  const fetchProduct = useCallback(async () => {
     try {
       const response = await api.get(`/produtos/view/${id}`, {
         withCredentials: true,
@@ -50,7 +49,7 @@ export default function Produto({ params }: { params: { id: number } }) {
     } catch (error) {
       setError("Erro ao buscar produto");
     }
-  };
+  }, [id]); // Adiciona 'id' como dependência
 
   // Função para lidar com o botão de editar ou cancelar edição
   const handleEdit = () => {
@@ -94,7 +93,7 @@ export default function Produto({ params }: { params: { id: number } }) {
     } else {
       setError("Erro ao buscar produto");
     }
-  },[fetchProduct, id]); 
+  } ,[fetchProduct, id]); 
 
   return (
     <div>
