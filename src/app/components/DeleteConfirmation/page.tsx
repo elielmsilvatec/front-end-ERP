@@ -8,7 +8,7 @@ interface DeleteConfirmationProps {
   onConfirm: () => void;
 }
 
-const DeleteConfirmation: React.FC<DeleteConfirmationProps> = ({ onConfirm }) => {
+const DeleteConfirmation = ({ onConfirm }: DeleteConfirmationProps) => {
   const handleDelete = () => {
     MySwal.fire({
       title: 'Você tem certeza?',
@@ -40,8 +40,7 @@ const DeleteConfirmation: React.FC<DeleteConfirmationProps> = ({ onConfirm }) =>
   );
 };
 
-export default DeleteConfirmation;
-
+export default DeleteConfirmation
 
 
 
