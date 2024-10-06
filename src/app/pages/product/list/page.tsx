@@ -107,7 +107,7 @@ export default function ProdutoPage() {
 
   useEffect(() => {
     fetchUserProducts();
-  }, []);
+  }, [fetchUserProducts]);
 
   return (
     // <div className="container mt-4">

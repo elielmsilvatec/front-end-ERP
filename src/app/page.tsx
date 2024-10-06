@@ -11,7 +11,7 @@ import { useAuth } from "@/app/api/auth";
 
 
 const page = () => {
-  useAuth();
+
   const { user, loggedIn } = useAuth();
   const router = useRouter(); // Adicionando o useRouter para o redirecionamento
   

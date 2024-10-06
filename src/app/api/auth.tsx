@@ -32,7 +32,7 @@ export const useAuth = () => {
 
   useEffect(() => {
     fetchSessionInfo();
-  }, []);
+  }, [fetchSessionInfo]);
 
   return { user, loggedIn };
 };
