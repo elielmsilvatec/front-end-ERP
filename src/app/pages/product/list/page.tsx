@@ -1,6 +1,6 @@
 "use client"; // Adicione esta linha no início do arquivo
 
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import api from "@/app/api/api";
 import { useAuth } from "@/app/api/auth";
 import Menu from "../../../components/menu/page";
@@ -91,8 +91,8 @@ export default function ProdutoPage() {
     }
   };
 
-  // Função para buscar os produtos do usuário logado
-  const fetchUserProducts = async () => {
+  // Função para buscar os produtos do usuário logado (usando useCallback)
+  const fetchUserProducts = useCallback(async () => {
     try {
       const response = await api.get("/produto/produtos", {
         withCredentials: true,
@@ -101,13 +101,13 @@ export default function ProdutoPage() {
       setLoading(false);
     } catch (error) {
       console.error("Erro ao buscar produtos do usuário:", error);
-      router.push("/pages/login/login"); // Se houver erro, redireciona para a página de login
+      router.push("/pages/login/login");
     }
-  };
+  }, []); // Array de dependências vazio: fetchUserProducts será memorizado
 
   useEffect(() => {
     fetchUserProducts();
-  }, [fetchUserProducts]);
+  }, []);
 
   return (
     // <div className="container mt-4">

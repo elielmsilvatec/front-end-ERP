@@ -94,7 +94,7 @@ export default function Produto({ params }: { params: { id: number } }) {
     } else {
       setError("Erro ao buscar produto");
     }
-  }, [id]);
+  })
 
   return (
     <div>

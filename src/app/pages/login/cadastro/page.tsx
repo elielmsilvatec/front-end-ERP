@@ -42,28 +42,7 @@ export default function CadastroPage() {
 
   return (
     <LoginLayout>
-      <Head>
-        <link
-          rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-        />
-        <link
-          rel="shortcut icon"
-          href="https://cdn-icons-png.flaticon.com/512/3700/3700776.png"
-        />
 
-        {/* Adiciona os scripts do Bootstrap JS e Popper.js */}
-        <script
-          src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
-          integrity="sha384-oBqDVmMz4fnFO9gybBa3yg3oZbwh/ScQsAP7AM1D5nxkSf5M0EBrt3El5pHIfjQ/"
-          crossOrigin="anonymous"
-        ></script>
-        <script
-          src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"
-          integrity="sha384-NwlR6FkPY3vyA1pHuTFzAB+WrSRqD+NprZ5gHAflfZSr69p6v51M3WJq0fMA0a6F"
-          crossOrigin="anonymous"
-        ></script>
-      </Head>
 
       <div className="d-flex align-items-center justify-content-center vh-100">
         <div

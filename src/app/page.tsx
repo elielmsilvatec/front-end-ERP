@@ -10,7 +10,7 @@ import styles from "./components/menu/menu.module.css"; // Importação do CSS c
 import { useAuth } from "@/app/api/auth";
 
 
-const page = () => {
+const Home = () => {
 
   const { user, loggedIn } = useAuth();
   const router = useRouter(); // Adicionando o useRouter para o redirecionamento
@@ -81,4 +81,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Home;
