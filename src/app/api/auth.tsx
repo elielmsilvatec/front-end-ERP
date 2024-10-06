@@ -28,12 +28,11 @@ export const useAuth = () => {
       console.error("Erro ao buscar informações da sessão:", error);
       router.push("/pages/login/login"); // Em caso de erro, redireciona para a página de login
     }
-  }, []); // A dependência vazia garante que a função seja memorizada apenas uma vez
+  }, [router]); // A dependência vazia garante que a função seja memorizada apenas uma vez
 
   useEffect(() => {
     fetchSessionInfo();
-  }, []); // Agora, a dependência vazia garante que o useEffect seja executado apenas uma vez na montagem do componente
-
+  }, [fetchSessionInfo]); 
   return { user, loggedIn };
 };
 

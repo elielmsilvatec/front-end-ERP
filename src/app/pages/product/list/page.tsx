@@ -103,11 +103,11 @@ export default function ProdutoPage() {
       console.error("Erro ao buscar produtos do usuário:", error);
       router.push("/pages/login/login");
     }
-  }, []); // Array de dependências vazio: fetchUserProducts será memorizado
+  }, [router]); // Array de dependências vazio: fetchUserProducts será memorizado
 
   useEffect(() => {
     fetchUserProducts();
-  }, []);
+  }, [fetchUserProducts]);
 
   return (
     // <div className="container mt-4">
