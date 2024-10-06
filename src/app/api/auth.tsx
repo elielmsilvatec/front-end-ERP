@@ -1,4 +1,7 @@
 // utils/auth.js
+
+'use client'
+
 import api from "@/app/api/api";
 import { useRouter } from "next/navigation"; // Use o router específico do App Router
 import { useEffect, useState } from "react";
