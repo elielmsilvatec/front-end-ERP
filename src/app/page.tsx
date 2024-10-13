@@ -34,7 +34,7 @@ const Home = () => {
         <div className={styles.layout}>
           {/* O conteúdo da página vai aqui */}
 
-          <h1>Dashbords  {user ? user.nome : ''}</h1>
+          {/* <h1>Dashbords  {user ? user.nome : ''}</h1> */}
 
           <p>
             Bem-vindo ao nosso site! Aqui você encontrará informações sobre
