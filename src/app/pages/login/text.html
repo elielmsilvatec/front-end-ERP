@@ -1,0 +1,197 @@
+"use client";
+
+import LoginLayout from "../../LoginLayout"; // Certifique-se de que o caminho está correto
+import Head from 'next/head';
+import { useState } from 'react';
+
+export default function LoginPage() {
+  const [email, setEmail] = useState('');
+  const [senha, setSenha] = useState('');
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    // Lógica para fazer login
+  };
+
+  return (
+    <LoginLayout>
+      <Head>
+        <title>Tela de Login</title>
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        />
+        <link
+          rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        />
+        <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/512/3700/3700776.png" />
+      </Head>
+
+      <div className="container">
+        <div className="row">
+          <div className="col-sm-9 col-md-7 col-lg-5 mx-auto">
+            <div className="card card-signin my-5">
+              <div className="card-body">
+                <h5 className="card-title text-center">Tela de Login</h5>
+
+                <form className="form-signin" onSubmit={handleLogin}>
+                  <div className="form-label-group">
+                    <input
+                      name="email"
+                      type="email"
+                      id="inputEmail"
+                      className="form-control"
+                      placeholder="Email"
+                      required
+                      autoFocus
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                    />
+                    <label htmlFor="inputEmail">Email</label>
+                  </div>
+                  <div className="form-label-group">
+                    <input
+                      name="senha"
+                      type="password"
+                      id="inputPassword"
+                      className="form-control"
+                      placeholder="Senha"
+                      required
+                      value={senha}
+                      onChange={(e) => setSenha(e.target.value)}
+                    />
+                    <label htmlFor="inputPassword">Senha</label>
+                  </div>
+                  <div className="custom-control custom-checkbox mb-3">
+                    <input type="checkbox" className="custom-control-input" id="customCheck1" />
+                    <label className="custom-control-label" htmlFor="customCheck1">
+                      Lembrar minha senha
+                    </label>
+                  </div>
+                  <button className="btn btn-lg btn-primary btn-block text-uppercase" type="submit">
+                    Entrar
+                  </button>
+                  <hr className="my-4" />
+                  <a
+                    className="btn btn-lg btn-secondary btn-block text-uppercase"
+                    href="#"
+                    data-toggle="modal"
+                    data-target="#recuperarSenhaModal"
+                  >
+                    Esqueci minha senha
+                  </a>
+                  <a
+                    className="btn btn-lg btn-secondary btn-block text-uppercase"
+                    href="#"
+                    data-toggle="modal"
+                    data-target="#cadastrarModal"
+                  >
+                    Cadastre-se
+                  </a>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Modal de recuperação de senha */}
+      <div
+        className="modal fade"
+        id="recuperarSenhaModal"
+        tabIndex="-1"
+        role="dialog"
+        aria-labelledby="recuperarSenhaModalLabel"
+        aria-hidden="true"
+      >
+        <div className="modal-dialog" role="document">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title" id="recuperarSenhaModalLabel">
+                Recuperar senha
+              </h5>
+              <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div className="modal-body">
+              <form method="post" action="/user/recuperar-senha">
+                <div className="form-group">
+                  <label htmlFor="email">Endereço de e-mail:</label>
+                  <input name="email" type="email" className="form-control" id="email" placeholder="Digite seu e-mail" />
+                </div>
+                <button type="submit" className="btn btn-primary">
+                  Enviar
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Modal de cadastro */}
+      <div
+        className="modal fade"
+        id="cadastrarModal"
+        tabIndex="-1"
+        role="dialog"
+        aria-labelledby="cadastrarModalLabel"
+        aria-hidden="true"
+      >
+        <form method="post" action="/user/new">
+          <div className="modal-dialog" role="document">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h5 className="modal-title" id="cadastrarModalLabel">
+                  Cadastre-se
+                </h5>
+                <button type="button" className="close" data-dismiss="modal" aria-label="Fechar">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div className="modal-body">
+                {/* Aqui vão os campos do formulário de cadastro */}
+                <div className="form-group">
+                  <label htmlFor="nomeCadastro">Nome</label>
+                  <input
+                    name="nome"
+                    type="text"
+                    className="form-control"
+                    id="nomeCadastro"
+                    placeholder="Digite seu nome"
+                  />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="emailCadastro">E-mail</label>
+                  <input
+                    name="email"
+                    type="email"
+                    className="form-control"
+                    id="emailCadastro"
+                    placeholder="Digite seu e-mail"
+                  />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="senhaCadastro">Senha</label>
+                  <input
+                    name="senha"
+                    type="password"
+                    className="form-control"
+                    id="senhaCadastro"
+                    placeholder="Digite sua senha"
+                  />
+                </div>
+                <button type="submit" className="btn btn-primary">
+                  Cadastrar
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+
+
+    </LoginLayout>
+  );
+}
