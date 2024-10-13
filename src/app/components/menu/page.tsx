@@ -97,7 +97,7 @@ export default function Header() {
             </Link>
           </li>
           <li id="financeiro">
-            <Link href="/pages/financial">{user ? user.email : "..."}</Link>
+          <Link href="/pages/financial">{user?.email ?? '...'}</Link>
           </li>
           <li>
             <Link href={""} onClick={handleLogout}>
