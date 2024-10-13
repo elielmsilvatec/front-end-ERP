@@ -14,7 +14,7 @@ export default function CadastroPage() {
   const [senha, setSenha] = useState("");
   const [mensagem, setMensagem] = useState("");
 
-  const handleLogin = async (e) => {
+  const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
       const response = await api.post("/user/new", { nome, email, senha });

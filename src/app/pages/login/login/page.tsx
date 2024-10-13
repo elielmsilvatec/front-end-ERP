@@ -16,7 +16,7 @@ export default function LoginPage() {
   const [error, setError] = useState('');
   const router = useRouter(); // Adicionando o useRouter para o redirecionamento
 
-  const handleLogin = async (e) => {
+  const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
       const response = await api.post('/user/login', { email, senha }, { withCredentials: true });
