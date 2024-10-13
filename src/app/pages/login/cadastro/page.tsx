@@ -36,7 +36,7 @@ export default function CadastroPage() {
         // router.push("/pages/login/login");
       }
     } catch (error) {
-      setMensagem(response.data.message);
+      console.log("Falhou .... cadastro login")
     }
   };
 
