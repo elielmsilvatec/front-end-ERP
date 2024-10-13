@@ -96,9 +96,7 @@ export default function Header() {
               <i className="bi bi-credit-card"></i> Financeiro
             </Link>
           </li>
-          <li id="financeiro">
-          <Link href="/pages/financial">{user?.email ?? '...'}</Link>
-          </li>
+        
           <li>
             <Link href={""} onClick={handleLogout}>
               <i className="bi bi-arrow-return-right"></i> Sair
