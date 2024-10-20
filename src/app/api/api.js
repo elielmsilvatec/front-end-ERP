@@ -1,33 +1,18 @@
+import axios from "axios";
 
+let baseURL;
 
-import axios, { Axios } from "axios";
+if (process.env.NODE_ENV === "production") {
+  baseURL = "https://data.colorado.gov/resource";
+} else {
+  baseURL = "http://localhost:5000/";
+}
 
+const api = axios.create({
+  baseURL: baseURL,
+});
 
-
-  let baseURL;
-
-  if (process.env.NODE_ENV === "production") {
-    baseURL = "https://data.colorado.gov/resource";
-  } else {
-    baseURL = "http://localhost:5000/";
-  }
-
-  const api = axios.create({
-    baseURL: baseURL,
-  });
-
-
-
-
-export default api
-
-
-
-
-
-
-
-
+export default api;
 
 
 
