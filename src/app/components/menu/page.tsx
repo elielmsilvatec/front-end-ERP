@@ -100,9 +100,9 @@ export default function Header() {
           <Link href="/pages/financial">{user?.email ?? '...'}</Link>
           </li> */}
           <li>
-            <Link href={"#"} onClick={handleLogout}>
+            {/* <Link href={"#"} onClick={handleLogout}>
               <i className="bi bi-arrow-return-right"></i> Sair
-            </Link>
+            </Link> */}
           </li>
         </ul>
       </div>
