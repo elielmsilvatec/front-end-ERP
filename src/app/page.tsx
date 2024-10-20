@@ -15,6 +15,7 @@ const Home = () => {
   const { user, loggedIn } = useAuth();
   const router = useRouter(); // Adicionando o useRouter para o redirecionamento
   
+  
   // useEffect(() => {
   //   const user = localStorage.getItem('user');
     
@@ -35,6 +36,8 @@ const Home = () => {
           {/* O conteúdo da página vai aqui */}
 
           {/* <h1>Dashbords  {user ? user.nome : ''}</h1> */}
+
+         
 
           <p>
             Bem-vindo ao nosso site! Aqui você encontrará informações sobre

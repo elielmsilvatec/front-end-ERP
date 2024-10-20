@@ -7,7 +7,6 @@ import React, { useEffect, useState } from "react";
 import api from "@/app/api/api";
 
 export default function Header() {
-  useAuth();
   const { user, loggedIn } = useAuth();
   // para deslogar o usuario
   const handleLogout = async () => {
@@ -100,7 +99,7 @@ export default function Header() {
           <Link href="/pages/financial">{user?.email ?? '...'}</Link>
           </li> */}
           <li>
-            <Link href={""} onClick={handleLogout}>
+            <Link href={"#"} onClick={handleLogout}>
               <i className="bi bi-arrow-return-right"></i> Sair
             </Link>
           </li>
