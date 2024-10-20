@@ -1,5 +1,5 @@
 
-import Cookies from 'js-cookie';
+
 import axios, { Axios } from "axios";
 
 
