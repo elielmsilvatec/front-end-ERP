@@ -1,6 +1,6 @@
 // utils/auth.js
 
-'use client'
+'use client';
 
 import api from "@/app/api/api";
 import { useRouter } from "next/navigation"; 
@@ -11,8 +11,11 @@ export const useAuth = () => {
   const [loggedIn, setLoggedIn] = useState(false);
   const router = useRouter();
 
-  // Função para buscar as informações da sessão
   const fetchSessionInfo = useCallback(async () => {
+    if (typeof window === 'undefined') {
+      return; // Se estamos no servidor, não faz nada
+    }
+    
     try {
       const response = await api.get("http://localhost:5000/session-info", {
         withCredentials: true,
@@ -22,23 +25,20 @@ export const useAuth = () => {
         console.log(response.data.user)
         setLoggedIn(true);
       } else {
-        router.push("/pages/login/login"); // Se não estiver logado, redireciona para a página de login
+        router.push("/pages/login/login");
       }
     } catch (error) {
       console.error("Erro ao buscar informações da sessão:", error);
-      router.push("/pages/login/login"); // Em caso de erro, redireciona para a página de login
+      router.push("/pages/login/login");
     }
-  }, [router]); // A dependência vazia garante que a função seja memorizada apenas uma vez
+  }, [router]);
 
   useEffect(() => {
     fetchSessionInfo();
-  }, [fetchSessionInfo]); 
+  }, [fetchSessionInfo]);
+
   return { user, loggedIn };
 };
-
-
-
-
 
 
 
