@@ -1,6 +1,7 @@
 // // utils/auth.js
 // 'use client';
 
+'use client';
 import api from "@/app/api/api";
 import { useRouter } from "next/navigation";
 import { useEffect, useState, useCallback } from "react";
