@@ -2,12 +2,12 @@ import Link from "next/link";
 import Image from "next/image";
 import Head from "next/head";
 import styles from "./menu.module.css"; // Importação do CSS como módulo
-// import { useAuth } from "@/app/api/auth";
+import { useAuth } from "@/app/api/auth";
 import React, { useEffect, useState } from "react";
 // import api from "@/app/api/api";
 
 export default function Header() {
-  // const { user, loggedIn } = useAuth();
+  const { user, loggedIn } = useAuth();
   // para deslogar o usuario
   const handleLogout = async () => {
     // try {
