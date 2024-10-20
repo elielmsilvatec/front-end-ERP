@@ -2,23 +2,23 @@ import Link from "next/link";
 import Image from "next/image";
 import Head from "next/head";
 import styles from "./menu.module.css"; // Importação do CSS como módulo
-import { useAuth } from "@/app/api/auth";
+// import { useAuth } from "@/app/api/auth";
 import React, { useEffect, useState } from "react";
-import api from "@/app/api/api";
+// import api from "@/app/api/api";
 
-export default function Header() {
-  const { user, loggedIn } = useAuth();
-  // para deslogar o usuario
-  const handleLogout = async () => {
-    try {
-      // Faz a requisição para a rota de logout no backend
-      await api.post("/user/logout", {}, { withCredentials: true });
-      // Redireciona o usuário para a tela de login após o logout
-      window.location.href = "/pages/login/login";
-    } catch (error) {
-      console.error("Erro ao fazer logout:", error);
-    }
-  };
+// export default function Header() {
+//   const { user, loggedIn } = useAuth();
+//   // para deslogar o usuario
+//   const handleLogout = async () => {
+//     try {
+//       // Faz a requisição para a rota de logout no backend
+//       await api.post("/user/logout", {}, { withCredentials: true });
+//       // Redireciona o usuário para a tela de login após o logout
+//       window.location.href = "/pages/login/login";
+//     } catch (error) {
+//       console.error("Erro ao fazer logout:", error);
+//     }
+//   };
 
   return (
     <>
