@@ -15,9 +15,9 @@ export const useAuth = () => {
     if (typeof window === 'undefined') {
       return; // Se estamos no servidor, não faz nada
     }
-    
+    // http://localhost:5000/session-info
     try {
-      const response = await api.get("http://localhost:5000/session-info", {
+      const response = await api.get("https://data.colorado.gov/resource", {
         withCredentials: true,
       });
       if (response.data.loggedIn) {
