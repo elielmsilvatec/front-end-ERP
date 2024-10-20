@@ -1,5 +1,5 @@
-// utils/auth.js
-'use client';
+// // utils/auth.js
+// 'use client';
 
 import api from "@/app/api/api";
 import { useRouter } from "next/navigation";
@@ -11,12 +11,13 @@ export function useAuth() {
   const router = useRouter();
 
   const fetchSessionInfo = useCallback(async () => {
-    if (typeof window === 'undefined') {
-      return; // Se estamos no servidor, não faz nada
+   if(process.env.NODE_ENV === "production") {
+      return 
+  
     }
 
     try {
-      const response = await api.get("https://data.colorado.gov/resource", {
+      const response = await api.get("http://localhost:5000/session-info", {
         withCredentials: true,
       });
 
@@ -107,7 +108,7 @@ export function useAuth() {
 //   // Função para buscar as informações da sessão
 //   const fetchSessionInfo = async () => {
 //     try {
-//       const response = await api.get("http://localhost:5000/session-info", {
+//       const response = await api.get("/session-info", {
 //         withCredentials: true,
 //       });
 //       if (response.data.loggedIn) {

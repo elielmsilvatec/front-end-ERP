@@ -3,9 +3,36 @@
 import axios, { Axios } from "axios";
 
 
-const api = axios.create({
-  baseURL: 'https://data.colorado.gov/resource'
-})
+
+  let baseURL;
+
+  if (process.env.NODE_ENV === "production") {
+    baseURL = "https://data.colorado.gov/resource";
+  } else {
+    baseURL = "http://localhost:5000/";
+  }
+
+  const api = axios.create({
+    baseURL: baseURL,
+  });
+
+
+
+
+export default api
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // const userToken = Cookies.get("userToken");
 
@@ -19,5 +46,3 @@ const api = axios.create({
 //   return config
 
 // })
-
-export default api
