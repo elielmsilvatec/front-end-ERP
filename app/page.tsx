@@ -3,9 +3,7 @@
 import { useEffect } from "react";
 import { useSession, signOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import { Button } from "@/components/ui/button";
-import Menu from "@/components/menu/page";
-import { LogOut } from "lucide-react";
+
 
 export default function Home() {
   const { data: session, status } = useSession();
